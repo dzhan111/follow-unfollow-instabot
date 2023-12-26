@@ -3,11 +3,12 @@ from instapy import InstaPy
 from instapy import smart_run
 
 # login credentials
-insta_username = 'username'
-insta_password = 'pass'
+insta_username = 'username here'
+insta_password = 'password here'
 
 # InstaPy session
 # set headless_browser=True to run InstaPy in the background
+# MUST download firefox to run this. or else there will be an error or some
 session = InstaPy(username=insta_username,
                   password=insta_password,
                   headless_browser=False)
@@ -36,6 +37,8 @@ with smart_run(session):
                             peak_server_calls_hourly=None,
                             peak_server_calls_daily=4700)
 
+    """ sets the people that you don't wanna interact with/ posts tht you dont wanna like
+    """
     session.set_dont_include(["friend1", "friend2", "friend3"])
     session.set_dont_like(["pizza", "#store"])
 
@@ -43,7 +46,7 @@ with smart_run(session):
 
     """ Massive Follow of users followers 
     """
-    session.follow_user_followers(['fus_gring', 'taco.with.lalo', 'breakingbadreel'], amount=100,
+    session.follow_user_followers(['account1', 'account2', 'account3name'], amount=100,
                                   randomize=False, interact=False)
 
     """ unfollow non followers, first in first out
@@ -58,7 +61,7 @@ with smart_run(session):
                            style="FIFO",
                            unfollow_after=12 * 60 * 60, sleep_delay=601)
 
-    """ unfollow all people instapy followed after a certain time
+    """ unfollow all people instapy followed after a certain time in seconds
     """
     session.unfollow_users(amount=500, InstapyFollowed=(True, "all"),
                            style="FIFO", unfollow_after=24 * 60 * 60,
@@ -66,16 +69,7 @@ with smart_run(session):
 
     """ stuff i will add engagement to
     """
-    photo_comments = ['saul is here',
-        'sus gus',
-        'saul :thumbsup:',
-        'i love breaking bad',
-        'my name is saul',
-        'breaking bad is best ww',
-        'relax, just call saul',
-        'sussy gussy',
-        'when the imposter is gus',
-        'hi']
+    photo_comments = ['hello', 'example comment', 'this is what will go under a post that is in the niche']
 
     session.set_do_comment(enabled = True, percentage = 95)
     session.set_comments(photo_comments, media = 'Photo')
