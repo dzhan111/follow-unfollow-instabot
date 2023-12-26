@@ -1,5 +1,5 @@
 # instabot
-This is an insta mass follow bot I used to grow my meme page in the beginning
+This is an instagram mass follow bot 
 
 It basically follows the followers of certain accounts in your niche(eg. for me it was other breaking bad meme pages)
 and then unfollows them after a certain amount of time, whether they have followed your account or not. 
